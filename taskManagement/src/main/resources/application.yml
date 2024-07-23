@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: taskManagement
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskManagement
+    username: viniciussantos
+    password: PASSWORD123@
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
