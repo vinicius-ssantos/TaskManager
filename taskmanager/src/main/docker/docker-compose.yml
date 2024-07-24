@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ../../..
+      dockerfile: taskmanager/src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
