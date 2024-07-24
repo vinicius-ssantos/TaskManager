@@ -1,7 +1,6 @@
 package io.viniciussantos.task;
 
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 import java.time.LocalDateTime;

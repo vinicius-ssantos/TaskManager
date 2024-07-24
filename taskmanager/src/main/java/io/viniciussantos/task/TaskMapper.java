@@ -1,12 +1,17 @@
 package io.viniciussantos.task;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
+import java.time.LocalDateTime;
+
+
+@ApplicationScoped
 public class TaskMapper {
     public Task toTask(TaskRequest taskRequest) {
        return Task.builder()
                .id(taskRequest.id())
                 .title(taskRequest.title())
                 .description(taskRequest.description())
-                .status(taskRequest.status())
                 .build();
     }
 
@@ -15,7 +20,17 @@ public class TaskMapper {
                 .id(task.getId())
                 .title(task.getTitle())
                 .description(task.getDescription())
-                .status(task.getStatus())
+                .status(String.valueOf(task.getStatus()))
                 .build();
+    }
+
+    // Método adicional para atualizar a entidade Task a partir do TaskRequest
+    public void updateTaskFromRequest(TaskRequest taskRequest,  Task task) {
+        task.setTitle(taskRequest.title());
+        task.setDescription(taskRequest.description());
+        task.setStatus(taskRequest.status());
+        if (taskRequest.status().equals(Status.COMPLETED.getStatus())) {
+            task.setCompletionDate(LocalDateTime.now());
+        }
     }
 }

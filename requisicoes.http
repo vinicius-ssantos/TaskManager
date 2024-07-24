@@ -11,30 +11,26 @@ Accept: application/json
 
 {
   "title": "Nova Tarefa",
-  "description": "Descrição da nova tarefa",
-  "creationDate": "2024-07-24T10:00:00",
-  "completionDate": "2024-07-31T18:00:00",
-  "status": "In Progress"
+  "description": "Descrição da nova tarefa"
 }
 
 ###
 
 ### Atualizar uma tarefa existente
-PUT http://localhost:8080/tasks/1
+PUT http://localhost:8080/tasks/42
 Content-Type: application/json
 Accept: application/json
 
 {
-  "title": "Tarefa Atualizada",
+  "title": "Tarefa Atualizada denovo novo",
   "description": "Descrição atualizada",
-  "completionDate": "2024-08-01T18:00:00",
-  "status": "Completed"
+  "status": "completed"
 }
 
 ###
 
 ### Deletar uma tarefa
-DELETE http://localhost:8080/tasks/1
+DELETE http://localhost:8080/tasks/46
 Accept: application/json
 
 ###

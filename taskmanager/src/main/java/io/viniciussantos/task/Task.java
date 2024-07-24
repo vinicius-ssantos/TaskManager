@@ -10,7 +10,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-import java.time.LocalDateTime;
 @Builder
 @Entity
 @AllArgsConstructor
@@ -23,7 +22,7 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private String status;
+    private String status = Status.PENDING.getStatus();
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime creationDate;
@@ -34,8 +33,7 @@ public class Task {
     protected void onCreate() {
         creationDate = LocalDateTime.now();
     }
-    @PreUpdate
-    protected void onUpdate() {
-        completionDate = LocalDateTime.now();
-    }
+
+
+
 }

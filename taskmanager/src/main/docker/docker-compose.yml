@@ -58,27 +58,19 @@
 #      POSTGRES_DB: mytestdb
 #      POSTGRES_PORT: 5432
 
+version: '3.8'
 services:
-  postgresql:
-    container_name: taskmanager-postgresql
-    image: postgres
+  db:
+    image: postgres:latest
+    container_name: postgres
     environment:
-      POSTGRES_USER: viniciussantos
-      POSTGRES_PASSWORD: viniciussantos
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: mytestdb
     ports:
       - "5432:5432"
-    networks:
-      - microservices-net
-    restart: unless-stopped
-
-networks:
-  microservices-net:
-    driver: bridge
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  postgres:
-  pgadmin:
-  mongo:
+  postgres_data:

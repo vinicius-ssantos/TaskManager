@@ -1,9 +1,10 @@
 package io.viniciussantos.task;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
 
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/tasks")
@@ -19,14 +20,14 @@ public class TaskResource {
     }
 
     @POST
-    public Task createTask(Task task) {
-        return taskService.create(task);
+    public Task createTask(TaskRequest taskRequest) {
+        return taskService.create(taskRequest);
     }
 
     @PUT
     @Path("/{id}")
-    public Task updateTask(@PathParam("id") Long id, Task task) {
-        return taskService.update(id, task);
+    public Task updateTask(@PathParam("id") Long id, TaskRequest taskRequest) {
+        return taskService.update(id, taskRequest);
     }
 
     @DELETE
